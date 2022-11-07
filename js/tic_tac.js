@@ -121,7 +121,7 @@ function checkId(val1, val2, val3, sign){
 
 function selectWinner(){ //if one combination of them mathched then select the winner;
    console.log(playerSign)
-    if(checkId(1,2,3, playerSign) || checkId(4,5,6, playerSign) || checkId(6,7,8, playerSign) || checkId(1,4,7, playerSign) || checkId(2,5,8, playerSign) || checkId(3,6,9, playerSign) || checkId(1,5,9, playerSign) || checkId(3,5,7, playerSign)){
+    if(checkId(1,2,3, playerSign) || checkId(4,5,6, playerSign) || checkId(7,8,9, playerSign) || checkId(6,7,8, playerSign) || checkId(1,4,7, playerSign) || checkId(2,5,8, playerSign) || checkId(3,6,9, playerSign) || checkId(1,5,9, playerSign) || checkId(3,5,7, playerSign)){
 
         //once match won by somone then stop the bot
 

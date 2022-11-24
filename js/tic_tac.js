@@ -79,7 +79,7 @@ function bot(runBot){
     let botId = playerSign;
 
     // declering nesseary arrays 
-     let array = [0, 2, 4, 6, 8];
+     let array = [0, 2, 6, 8];
      let array2 = [];
      let array3 = [];
      let one = allBox[0].getAttribute("id") == playerId;

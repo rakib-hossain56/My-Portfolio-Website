@@ -21,7 +21,7 @@ window.onload = ()=>{ //once window loaded
     players.setAttribute("class", "players active player"); //adding three class names in player element
    
 
-    if(randomNumber > 5){
+    if(randomNumber > 2){
         bot(runBot);
     }
 
@@ -76,7 +76,7 @@ function bot(runBot){
    if(runBot){ //if runbot is true then run the following codes
      //first change the playerSign...so if user has X value in id then bot will have o
      playerSign = "O";
-    let botId = playerSign;
+    let botId = "Bot";
 
     // declering nesseary arrays 
      let array = [0, 2, 6, 8];

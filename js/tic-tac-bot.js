@@ -25,16 +25,7 @@ window.onload = ()=>{ //once window loaded
         bot(runBot);
     }
 
-   //  selectXBtn.onclick = () =>{
-
-   //      selectBox.classList.add("hide"); //hide the select box on playerX button clicked
-   //      playBoard.classList.add("show"); //show the playboard section on playerX button clicked
-   //  }
-   //  selectOBtn.onclick = () =>{
-   //      selectBox.classList.add("hide"); //hide the select box on playerO button clicked
-   //      playBoard.classList.add("show"); //show the playboard section on playerO button clicked
-   //      //players.setAttribute("class", "players active player"); //adding three class names in player element
-   //  }
+   
 
 }
 
@@ -77,7 +68,7 @@ function bot(runBot){
      //first change the playerSign...so if user has X value in id then bot will have o
      playerSign = "O";
     let botId = "Bot";
-
+    let randomBox;
     // declering nesseary arrays 
      let array = [0, 2, 6, 8];
      let array2 = [];
@@ -103,6 +94,8 @@ function bot(runBot){
      let botTeight = allBox[7].getAttribute("id") == botId;
      let botTnine = allBox[8].getAttribute("id") == botId;
 
+ 
+
      for(let i = 0; i < allBox.length; i++){
         
         if(allBox[i].childElementCount == 0){ //if span has no child element
@@ -120,85 +113,172 @@ function bot(runBot){
     }
 // making condition for bot selection
     // case [1,2,3]
-     if(((botTone && botTtwo) || (one && two)) && allBox[2].childElementCount == 0){
-        randomBox = 2;
-     }
-     else if(((botTtwo && botTthree) || (two && three)) && allBox[0].childElementCount == 0){
-        randomBox = 0;
-     }
-     else if(((botTone && botTthree) || (one && three)) && allBox[1].childElementCount == 0){
-        randomBox = 1;
-     }// case [4,5,6]
-     else if(((botTfour && botTfive) || (four && five)) && allBox[5].childElementCount == 0){
+    if((botTone && botTtwo) && allBox[2].childElementCount == 0){
+      randomBox = 2;
+      }
+      else if((botTtwo && botTthree) && allBox[0].childElementCount == 0){
+         randomBox = 0;
+      }
+      else if((botTone && botTthree) && allBox[1].childElementCount == 0){
+         randomBox = 1;
+      }
+      // case [2,5,8]
+      else if((botTtwo && botTfive) && allBox[7].childElementCount == 0){
+         randomBox = 7;
+      }
+      else if((botTfive && botTeight) && allBox[1].childElementCount == 0){
+         randomBox = 1;
+      }
+      else if((botTtwo && botTeight) && allBox[4].childElementCount == 0){
+         randomBox = 4;
+      }// case [3,6,9]
+      else if((botTthree && botTsix) && allBox[8].childElementCount == 0){
+         randomBox = 8;
+      }
+      else if((botTsix && botTnine) && allBox[2].childElementCount == 0){
+         randomBox = 2;
+      }
+      else if((botTthree && botTnine) && allBox[5].childElementCount == 0){
+         randomBox = 5;
+      }
+         
+     // case [4,5,6]
+     else if((botTfour && botTfive) && allBox[5].childElementCount == 0){
         randomBox = 5;
      }
-     else if(((botTfive && botTsix) || (five && six)) && allBox[3].childElementCount == 0){
+     else if((botTfive && botTsix) && allBox[3].childElementCount == 0){
         randomBox = 3;
      }
-     else if(((botTfour && botTsix) || (four && six)) && allBox[4].childElementCount == 0){
+     else if((botTfour && botTsix) && allBox[4].childElementCount == 0){
         randomBox = 4;
      }// case [7,8,9]
-     else if(((botTseven && botTeight) || (seven && eight)) && allBox[8].childElementCount == 0){
+     else if((botTseven && botTeight) && allBox[8].childElementCount == 0){
         randomBox = 8;
      }
-     else if(((botTeight && botTnine) || (eight && nine)) && allBox[6].childElementCount == 0){
+     else if((botTeight && botTnine) && allBox[6].childElementCount == 0){
         randomBox = 6;
      }
-     else if(((botTseven && botTnine) || (seven && nine)) && allBox[7].childElementCount == 0){
+     else if((botTseven && botTnine) && allBox[7].childElementCount == 0){
         randomBox = 7;
      }// case [1,4,7]
-     else if(((botTone && botTfour) || (one && four)) && allBox[6].childElementCount == 0){
+     else if((botTone && botTfour) && allBox[6].childElementCount == 0){
         randomBox = 6;
      }
-     else if(((botTfour && botTseven) || (four && seven)) && allBox[0].childElementCount == 0){
+     else if((botTfour && botTseven) && allBox[0].childElementCount == 0){
         randomBox = 0;
      }
-     else if(((botTone && botTseven) || (one && seven)) && allBox[3].childElementCount == 0){
+     else if((botTone && botTseven) && allBox[3].childElementCount == 0){
         randomBox = 3;
-     }// case [2,5,8]
-     else if(((botTtwo && botTfive) || (two && five)) && allBox[7].childElementCount == 0){
-        randomBox = 7;
      }
-     else if(((botTfive && botTeight) || (five && eight)) && allBox[1].childElementCount == 0){
-        randomBox = 1;
-     }
-     else if(((botTtwo && botTeight) || (two && eight)) && allBox[4].childElementCount == 0){
-        randomBox = 4;
-     }// case [3,6,9]
-     else if(((botTthree && botTsix) || (three && six)) && allBox[8].childElementCount == 0){
+     
+     // case [1,5,9]
+     else if((botTone && botTfive) && allBox[8].childElementCount == 0){
         randomBox = 8;
      }
-     else if(((botTsix && botTnine) || (six && nine)) && allBox[2].childElementCount == 0){
-        randomBox = 2;
-     }
-     else if(((botTthree && botTnine) || (three && nine)) && allBox[5].childElementCount == 0){
-        randomBox = 5;
-     }// case [1,5,9]
-     else if(((botTone && botTfive) || (one && five)) && allBox[8].childElementCount == 0){
-        randomBox = 8;
-     }
-     else if(((botTfive && botTnine) || (five && nine)) && allBox[0].childElementCount == 0){
+     else if((botTfive && botTnine) && allBox[0].childElementCount == 0){
         randomBox = 0;
      }
-     else if(((botTone && botTnine) || (one && nine)) && allBox[4].childElementCount == 0){
+     else if((botTone && botTnine) && allBox[4].childElementCount == 0){
         randomBox = 4;
      }// case [3,5,7]
-     else if(((botTthree && botTfive) || (three && five)) && allBox[6].childElementCount == 0){
+     else if((botTthree && botTfive) && allBox[6].childElementCount == 0){
         randomBox = 6;
      }
-     else if(((botTfive && botTseven) || (five && seven)) && allBox[2].childElementCount == 0){
+     else if((botTfive && botTseven) && allBox[2].childElementCount == 0){
         randomBox = 2;
      }
-     else if(((botTthree && botTseven) || (three && seven)) && allBox[4].childElementCount == 0){
+     else if((botTthree && botTseven) && allBox[4].childElementCount == 0){
+        randomBox = 4;
+     }
+     
+     else{
+      // checking for real player
+     // case [1,2,3]
+     if((one && two) && allBox[2].childElementCount == 0){
+      randomBox = 2;
+      }
+      else if((two && three) && allBox[0].childElementCount == 0){
+         randomBox = 0;
+      }
+      else if((one && three) && allBox[1].childElementCount == 0){
+         randomBox = 1;
+      }
+      // case [2,5,8]
+      else if((two && five) && allBox[7].childElementCount == 0){
+         randomBox = 7;
+      }
+      else if((five && eight) && allBox[1].childElementCount == 0){
+         randomBox = 1;
+      }
+      else if((two && eight) && allBox[4].childElementCount == 0){
+         randomBox = 4;
+      }// case [3,6,9]
+      else if((three && six) && allBox[8].childElementCount == 0){
+         randomBox = 8;
+      }
+      else if((six && nine) && allBox[2].childElementCount == 0){
+         randomBox = 2;
+      }
+      else if((three && nine) && allBox[5].childElementCount == 0){
+         randomBox = 5;
+      }
+         
+     // case [4,5,6]
+     else if((four && five) && allBox[5].childElementCount == 0){
+        randomBox = 5;
+     }
+     else if((five && six) && allBox[3].childElementCount == 0){
+        randomBox = 3;
+     }
+     else if((four && six) && allBox[4].childElementCount == 0){
+        randomBox = 4;
+     }// case [7,8,9]
+     else if((seven && eight) && allBox[8].childElementCount == 0){
+        randomBox = 8;
+     }
+     else if((eight && nine) && allBox[6].childElementCount == 0){
+        randomBox = 6;
+     }
+     else if((seven && nine) && allBox[7].childElementCount == 0){
+        randomBox = 7;
+     }// case [1,4,7]
+     else if((one && four) && allBox[6].childElementCount == 0){
+        randomBox = 6;
+     }
+     else if((four && seven) && allBox[0].childElementCount == 0){
+        randomBox = 0;
+     }
+     else if((one && seven) && allBox[3].childElementCount == 0){
+        randomBox = 3;
+     }
+     
+     // case [1,5,9]
+     else if((one && five) && allBox[8].childElementCount == 0){
+        randomBox = 8;
+     }
+     else if((five && nine) && allBox[0].childElementCount == 0){
+        randomBox = 0;
+     }
+     else if((one && nine) && allBox[4].childElementCount == 0){
+        randomBox = 4;
+     }// case [3,5,7]
+     else if((three && five) && allBox[6].childElementCount == 0){
+        randomBox = 6;
+     }
+     else if((five && seven) && allBox[2].childElementCount == 0){
+        randomBox = 2;
+     }
+     else if((three && seven) && allBox[4].childElementCount == 0){
         randomBox = 4;
      }
      else{
-      console.log("else")
-        array2.length == 0? randomBox = array3[Math.floor(Math.random() * array3.length)] : randomBox = array2[Math.floor(Math.random() * array2.length)] //getting random index from array so bot will select random unselected box
+      console.log("else");
+      array2.length == 0? randomBox = array3[Math.floor(Math.random() * array3.length)] : randomBox = array2[Math.floor(Math.random() * array2.length)] //getting random index from array so bot will select random unselected box
+     }
         
         
     }
-console.log(randomBox)
+
      
      if(array.length > 0){
          if(players.classList.contains("player")){ //if players element has containts .player

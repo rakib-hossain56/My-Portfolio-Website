@@ -21,12 +21,9 @@ window.onload = ()=>{ //once window loaded
     players.setAttribute("class", "players active player"); //adding three class names in player element
    
 
-    if(randomNumber > 2){
+    if(randomNumber >= 2){
         bot(runBot);
     }
-
-   
-
 }
 
 let playerXIcon = "fas fa-times"; //class name of fontawesome cross icon
@@ -272,14 +269,12 @@ function bot(runBot){
         randomBox = 4;
      }
      else{
-      console.log("else");
       array2.length == 0? randomBox = array3[Math.floor(Math.random() * array3.length)] : randomBox = array2[Math.floor(Math.random() * array2.length)] //getting random index from array so bot will select random unselected box
      }
         
         
     }
-
-     
+       
      if(array.length > 0){
          if(players.classList.contains("player")){ //if players element has containts .player
              allBox[randomBox].innerHTML = `<i class="${playerXIcon}"></i>`; //adding cross icon tag inside user clicked element
@@ -303,8 +298,6 @@ function bot(runBot){
      
    }
 }
-
-
 //let work on select the winner
 
 function getId(classname){
@@ -318,7 +311,6 @@ function checkId(val1, val2, val3, sign){
         return true;
     }
 }
-
 
 function selectWinner(){ //if one combination of them mathched then select the winner;
     

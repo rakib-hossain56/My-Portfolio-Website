@@ -17,6 +17,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+app.get("/", (req, res) => {
+  res.send("Email service is running");
+});
+
 app.post("/send-mail", async (req, res) => {
   const { name, email, subject, comment } = req.body;
 
@@ -37,3 +41,4 @@ app.post("/send-mail", async (req, res) => {
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
+

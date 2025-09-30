@@ -14,10 +14,12 @@
     });
 
     const result = await res.json();
+    document.getElementById("comment").value= "";
     document.getElementById("submitButton").innerText= "Send your message";
     alert(result.message);
    
   });
+
 
 
 

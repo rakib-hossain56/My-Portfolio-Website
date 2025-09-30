@@ -1,7 +1,7 @@
 
 
 
-  document.getElementById("contact").addEventListener("submit", async (e) => {
+  document.getElementById("contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     document.getElementById("submitButton").innerText= "Message sending...";
     const formData = new FormData(e.target);
@@ -16,6 +16,7 @@
     const result = await res.json();
     alert(result.message);
   });
+
 
 
 

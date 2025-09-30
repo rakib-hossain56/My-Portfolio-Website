@@ -15,7 +15,9 @@
 
     const result = await res.json();
     alert(result.message);
+    document.getElementById("submitButton").innerText= "Send your message";
   });
+
 
 
 

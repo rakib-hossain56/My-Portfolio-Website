@@ -8,25 +8,25 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// Gmail SMTP Transport তৈরি করা
+// Making Gmail SMTP Transport 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.SENDER_EMAIL,   // আপনার Gmail
-    pass: process.env.SENDER_PASSWORD,     // App password (Google থেকে নিতে হবে)
+    user: process.env.SENDER_EMAIL,  
+    pass: process.env.SENDER_PASSWORD,     
   },
 });
 
 app.get("/", (req, res) => {
-  res.send("Email service is running");
+  res.send("Api Working...");
 });
 
 app.post("/send-mail", async (req, res) => {
   const { name, email, subject, comment } = req.body;
 
   const mailOptions = {
-    from: email, // user er email
-    to: process.env.SENDER_EMAIL, // আপনার Gmail
+    from: email, 
+    to: process.env.SENDER_EMAIL, 
     subject: subject,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${comment}`,
   };
@@ -41,4 +41,5 @@ app.post("/send-mail", async (req, res) => {
 });
 
 app.listen(5000, () => console.log("Server running on port 5000"));
+
 

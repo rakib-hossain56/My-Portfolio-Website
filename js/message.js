@@ -3,7 +3,7 @@
 
   document.getElementById("contact").addEventListener("submit", async (e) => {
     e.preventDefault();
-    document.getElementById("submitButton").innerText= "Message sending...;
+    document.getElementById("submitButton").innerText= "Message sending...";
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
@@ -16,6 +16,7 @@
     const result = await res.json();
     alert(result.message);
   });
+
 
 
 
